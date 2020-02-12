@@ -1,0 +1,19 @@
+Value NodeName (node[0-9+].fpc[0-9+].pic[0-9+])
+Value frag_received (\d+)
+Value frag_passed_defrag (\d+)
+Value frag_merged (\d+)
+Value frag_aged_out (\d+)
+Value sink_hole (\d+)
+Value duplicate_first_frag (\d+)
+Value queue_frag_in_fcb_dropped (\d+)
+
+
+Start 
+  ^=+\s${NodeName}
+  ^\s+fragments received\s+${frag_received}
+  ^\s+fragments passed defrag\s+${frag_passed_defrag}
+  ^\s+fragments merged\s+${frag_merged} 
+  ^\s+fragments aged out\s+${frag_aged_out}
+  ^\s+sink hole\s+${sink_hole}
+  ^\s+duplicate first frag\s+${duplicate_first_frag}
+  ^\s+queued frags in fcb dropped\s+${queue_frag_in_fcb_dropped} -> Record
